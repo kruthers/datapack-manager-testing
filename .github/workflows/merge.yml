@@ -10,6 +10,11 @@ jobs:
     name: Merge
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Main
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
       - name: File Removing
         run: | 
           git config user.email "action@github.com"
