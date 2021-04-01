@@ -19,7 +19,7 @@ jobs:
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          git rm -r Readme.md
+          git rm -r README.md
           git rm -r .github
           git commit -m "Remove things"
       - name: Merge
