@@ -10,33 +10,13 @@ jobs:
     name: Merge
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Main
-        uses: actions/checkout@v2
-        with:
-          ref: main
-
-      - name: Add GM4 Datapacks
-        run: |
-          git remote add upstream "https://github.com/Gamemode4Dev/GM4_Datapacks.git"
-          git fetch upstream
-          git checkout -b gm4 upstream/master
-
-      - name: Remove Test
-        run: |
+      - name: File Removing
+        run: | 
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git rm -r README.md
           git rm -r .github
           git commit -m "Remove things"
-
-      - name: Remove Datapacks
-        run: |
-          git rm -r base
-          git commit -m "Remove base"
-
-      - name: Merge
-        run: |
-          git merge -X theirs main --allow-unrelated-histories
 
       - name: Push
         uses: ad-m/github-push-action@v0.6.0
