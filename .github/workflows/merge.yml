@@ -21,6 +21,12 @@ jobs:
           git fetch upstream
           git checkout -b gm4 upstream/master
 
+      - name: Set Config
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git commit -m "Set Config"
+
       - name: Remove Datapacks
         run: |
           git rm -r base
@@ -32,8 +38,6 @@ jobs:
 
       - name: Remove Test
         run: |
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
           git rm -r README.md
           git rm -r .github
           git commit -m "Remove things"
