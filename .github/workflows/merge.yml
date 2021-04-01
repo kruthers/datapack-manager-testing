@@ -1,0 +1,33 @@
+name: MergeTest
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  merge:
+    name: Merge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Main
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Remove Test
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git rm -r Readme.md
+          git rm -r .github
+          git commit -m "Remove things"
+      - name: Merge
+        run: |
+          git merge -X theirs main --allow-unrelated-histories
+      - name: Push
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: testing
+          force: true
