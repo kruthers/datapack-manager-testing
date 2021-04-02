@@ -23,10 +23,11 @@ jobs:
           git rm -r .github
           git commit -m "Remove things"
 
-      - name: Get the gm4 datapacks
+      - name: Add Gamemode 4 datapacks
         run: |
           git remote add upstream "https://github.com/Gamemode4Dev/GM4_Datapacks.git"
           git fetch upstream
+          git checkout -b gm4 upstream/master
 
       - name: Push
         uses: ad-m/github-push-action@v0.6.0
