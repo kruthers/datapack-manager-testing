@@ -27,7 +27,11 @@ jobs:
         run: |
           git remote add upstream "https://github.com/Gamemode4Dev/GM4_Datapacks.git"
           git fetch upstream
-          git checkout -b gm4 upstream/master -m --ours
+          git checkout -b gm4 upstream/master
+
+      - name: Merge
+        run: |
+          git merge main
 
       - name: Push
         uses: ad-m/github-push-action@v0.6.0
