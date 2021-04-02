@@ -20,7 +20,7 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git rm -r README.md
-          git rm -r .github
+#          git rm -r .github
           git commit -m "Remove things"
 
       - name: Add Gamemode 4 datapacks
