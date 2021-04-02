@@ -31,7 +31,7 @@ jobs:
 
       - name: Merge
         run: |
-          git merge main
+          git merge main --allow-unrelated-histories
 
       - name: Push
         uses: ad-m/github-push-action@v0.6.0
