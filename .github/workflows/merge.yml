@@ -20,6 +20,7 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git rm -r README.md
+          git rm -r .github
           git commit -m "Remove things"
 
       - name: Add Gamemode 4 datapacks
@@ -31,6 +32,15 @@ jobs:
       - name: Merge
         run: |
           git merge main --allow-unrelated-histories
+
+      
+      - name: More File Managment
+        run: | 
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git rm -r README.md
+          git rm -r .github
+          git commit -m "Remove more things"
 
       - name: Push
         uses: ad-m/github-push-action@v0.6.0
